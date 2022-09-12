@@ -1,9 +1,0 @@
-@import "antd/dist/antd.css";
-
-.App {
-  text-align: center;
-}
-.below_main{ 
-  background-color: rgb(179, 181, 181);
-  padding:5px;
-}
