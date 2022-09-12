@@ -1,0 +1,23 @@
+.sidebar_in{
+    margin-top:100px;
+    display:flex;
+    flex-direction: column;
+}
+.sidebar_row{
+    display:flex;
+    align-items: center;
+    padding: 5px;
+    color:white;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.sidebar_row>.link{
+    margin-left: 10px;
+    background-color:rgb(20, 43, 87);
+    border:none;
+    color:white;
+    cursor: pointer; 
+}
+.sidebar_icon{
+    font-size:5px;
+}
