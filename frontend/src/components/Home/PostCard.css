@@ -1,0 +1,95 @@
+.postcard{
+   max-width: 2000px;
+    margin: 0 auto;
+    display: grid;
+  place-items: center;
+  margin: 30px;
+  border:none;
+  background: linear-gradient(to bottom, transparent, gray);
+}
+li>.ant-list-item{
+    max-width: 2000px;
+    margin: 0 auto;
+    display: grid;
+  place-items: center;
+}
+.ant-card>.ant-card-body {
+    padding: 7px;
+}
+.ant-card-head-wrapper>.ant-card-head-title{
+padding:0px
+}
+.postp_likes>h4{
+    margin-bottom: 0px;
+}
+.postp_top{
+    display:flex;
+}
+.postp_info{
+    
+    font-size: 10px;
+}
+.postp_bottom{
+    display:flex;
+    display: grid;
+  place-items: center;
+  margin-top: 10px;
+}
+.postp_bottom >h3{
+    margin:0px
+}
+.ant-card-body{
+    padding:0px
+}
+.postp_likes{
+    display:flex;
+    color:black;
+}
+.postlist_body{
+    max-width:100%;
+    background: linear-gradient(to bottom, transparent, gray);
+}
+.post_specific_card{
+    max-width: 2000px;
+    margin:0px auto;
+    display: grid;
+  margin: 30px;
+}
+.postp{
+    max-width: 2000px;
+    margin:0 auto;
+
+    
+    margin: 10px auto;
+}
+.ant-card-item{
+    max-width: 2000px;
+    margin:0 auto;
+}
+.ant-list-item>.ant-card
+{
+    margin:0 auto;
+}
+.post_head{
+    font-size: 40px;
+  font-weight: 600;
+  background-image: linear-gradient(45deg, #553c9a, #ee4b2b);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.ant-card-head{
+    padding: 0;
+}
+/* font-size: 40px;
+    font-weight: 600;
+    color: #fdfdfe;
+    text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+      0px 0px 20px #b393d3; */
+
+
+
+
+
+
+
