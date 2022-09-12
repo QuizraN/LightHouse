@@ -1,0 +1,91 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  user      User[] //List of employees
+  Group     Group[]
+  Likes     Likes[]
+}
+
+model User {
+  id          Int          @id @default(autoincrement())
+  companyId   Int
+  email       String       @unique
+  name        String?
+  creatorImg  String?      @db.VarChar(255)
+  description String?      @db.VarChar(255)
+  Hobbies     String?      @db.VarChar(255)
+  isAdmin     Boolean
+  posts       Post[]
+  likes       Likes[] //added by prisma
+  usergroups  Usergroups[] //added by prisma
+  company     Company      @relation(fields: [companyId], references: [id])
+  Group       Group[] //added by prisma
+}
+
+model Post {
+  id          Int      @id @default(autoincrement())
+  creatorId   Int //post is created by creatorId
+  groupId     Int //post belongs to groupId group
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+  description String?  @db.VarChar(255)
+  likes       Likes[] //added by prisma
+  user        User     @relation(fields: [creatorId], references: [id])
+  group       Group    @relation(fields: [groupId], references: [id])
+}
+
+model Group {
+  id         Int          @id @default(autoincrement())
+  creatorId  Int
+  companyId  Int
+  name       String       @unique
+  isGlobal   Boolean
+  posts      Post[]
+  user       User         @relation(fields: [creatorId], references: [id])
+  Usergroups Usergroups[]
+  company    Company      @relation(fields: [companyId], references: [id])
+}
+
+//Usergroups answers the following
+// who are the menbers of a group
+// user has created how many groups
+
+model Usergroups {
+  id      Int   @default(autoincrement())
+  userId  Int
+  groupId Int
+  user    User  @relation(fields: [userId], references: [id])
+  group   Group @relation(fields: [groupId], references: [id])
+
+  @@id([userId, groupId])
+}
+
+//Likes answers the following
+// which user likes which post
+// post is liked by which all users
+model Likes {
+  id        Int      @default(autoincrement())
+  companyId Int
+  userId    Int
+  postId    Int
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  post      Post     @relation(fields: [postId], references: [id])
+  company   Company  @relation(fields: [companyId], references: [id])
+
+  @@id([userId, postId, companyId])
+}
